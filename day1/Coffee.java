@@ -28,7 +28,7 @@ public class Coffee implements Comparable {
         return "Coffee { " +
                 "name = '" + name + '\'' +
                 ", price = " + price +
-                "}";
+                " }";
     }
 }
 
