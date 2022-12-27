@@ -1,6 +1,8 @@
 package day2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 
 public class LoopExample {
@@ -29,5 +31,15 @@ public class LoopExample {
 
         result = Arrays.stream(intArray1).noneMatch(a->a%4==0); // 맞지 않을 때
         System.out.println("결과 : " + result);
+
+        System.out.println("===============================");
+
+        // 최종 결과물의 디폴트값
+        List<Integer> list = new ArrayList<>(); // 값이 들어있지 않으므로 0 세팅
+//        double avg = list.stream().mapToInt(Integer::intValue).average().getAsDouble();   // 값이 없어서 오류
+        double avg = list.stream().mapToInt(Integer::intValue).average().orElse(0.0);
+        System.out.println("결과 : " + avg);
+
+        list.stream().mapToInt(Integer::intValue).average().ifPresent(a->System.out.println("평균 : " + a));
     }
 }
