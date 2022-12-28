@@ -25,6 +25,9 @@ class BiggestNum {
             }
         });
 
+        // 람다식
+        Arrays.sort(str, (a, b) ->(b+a).compareTo(a+b));
+
         // 0이 들어왔을 때 값을 문자열 0으로
         if(str[0].equals("0")) return "0";
 
