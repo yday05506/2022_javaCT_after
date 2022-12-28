@@ -15,6 +15,9 @@ class BiggestNum {
         }
 
         // 정렬
+        // comparable과 comparator의 차이
+        // comparable : 자기 자신과 매개변수 객체의 비교
+        // comparator : 두 매개변수 객체의 비교
         Arrays.sort(str, new Comparator<String>() {
             public int compare(String a, String b) {
                 return (b+a).compareTo(a+b);
