@@ -1,6 +1,8 @@
 package day3;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 class BiggestNum {
     public String solution(int[] numbers) {
@@ -28,11 +30,14 @@ class BiggestNum {
         // 람다식
         Arrays.sort(str, (a, b) ->(b+a).compareTo(a+b));
 
+        // stream으로 변형
+        answer = IntStream.of(numbers).mapToObj(String::valueOf).sorted((a,b) -> (b+a).compareTo(a+b)).collect(Collectors.joining());
+
         // 0이 들어왔을 때 값을 문자열 0으로
         if(str[0].equals("0")) return "0";
 
         // 0이 아니면 문자열 더함
-        for(String s : str) answer += s;
+        for(String s : str) answer += s;    // stream으로 변경하는 식에 joining이 있기 때문에 필요 없음
 
         return answer;
     }
