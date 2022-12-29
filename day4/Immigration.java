@@ -13,17 +13,20 @@ class Immigration {
 
         // 최소와 최대 비교
         while(left <= right) {
-            // 중간값
-            long mid = (left + right) / 2;
-            long sum = 0;
+            long mid = (left + right) / 2;  // 중간값
+            long sum = 0;   // 심사하는 인원
 
             for(int i = 0; i < times.length; i++)
-                sum += mid / times[i];
+                sum += mid / times[i];  // mid값에 심사하는 시간을 나눠서 sum에 저장
+                // ex) times = 7, 10 | n = 6
+                //     left = 1 | right = 10 * 6 → 60 | mid = 61 / 2 → 30.5
+                //     sum = 30.5 / 7 → 4, 30.5 / 10 → 3 => 7
+                //     → mid 시간 동안 몇 명이 심사했는지
 
-            if(sum < n)
-                left = mid + 1;
+            if(sum < n) // 심사를 해야 할 인원이 더 크면
+                left = mid + 1; // 시작하는 위치를 바꿔서 다시
             else {
-                right = mid - 1;
+                right = mid - 1;    // 아니라면 끝값을 정리해서 다시
                 answer = mid;
             }
         }
