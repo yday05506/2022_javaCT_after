@@ -8,7 +8,8 @@ class Budgets {
 
         // 최소값
         int min = 0;
-        // 최대값 
+        // 최대값
+//        int max = IntStream.of(budgets).max().orElse(0);  // stream
         int max = 0;
 
         for(int b : budgets) {
@@ -17,6 +18,10 @@ class Budgets {
 
         // 최대값, 최소값 비교(이진탐색)
         while(min <= max) {
+            // stream으로 구하는 법
+//            int mid = (min + max) / 2;  // 중앙값
+//            int sum = IntStream.of(budgets).map(b->Math.min(b, mid)).sum();
+
             int mid = (min + max) / 2;
             int sum = 0;
 
